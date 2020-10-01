@@ -1,4 +1,690 @@
-<!doctype html><html lang=en class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="GitHub galexrt/dellhw_exporter project documentation"><meta name=author content="Alexander Trost"><link rel="shortcut icon" href=../images/favicon.png><meta name=generator content="mkdocs-1.1.2, mkdocs-material-6.0.1"><title>Metrics - galexrt/dellhw_exporter Documentation</title><link rel=stylesheet href=../assets/stylesheets/main.38780c08.min.css><link rel=stylesheet href=../assets/stylesheets/palette.3f72e892.min.css><meta name=theme-color content=#7e56c2></head> <body dir=ltr data-md-color-scheme=slate data-md-color-primary=deep-purple data-md-color-accent=lime> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#what-do-the-metrics-mean class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <header class=md-header data-md-component=header> <nav class="md-header-nav md-grid" aria-label=Header> <a href=.. title="galexrt/dellhw_exporter Documentation" class="md-header-nav__button md-logo" aria-label="galexrt/dellhw_exporter Documentation"> <img src=../images/favicon.png alt=logo> </a> <label class="md-header-nav__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg> </label> <div class=md-header-nav__title data-md-component=header-title> <div class=md-header-nav__ellipsis> <span class="md-header-nav__topic md-ellipsis"> galexrt/dellhw_exporter Documentation </span> <span class="md-header-nav__topic md-ellipsis"> Metrics </span> </div> </div> <label class="md-header-nav__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query data-md-state=active> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </label> <button type=reset class="md-search__icon md-icon" aria-label=Clear data-md-component=search-reset tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg> </button> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list></ol> </div> </div> </div> </div> </div> <div class=md-header-nav__source> <a href=https://github.com/galexrt/dellhw_exporter/ title="Go to repository" class=md-source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> </div> <div class=md-source__repository> GitHub </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=.. title="galexrt/dellhw_exporter Documentation" class="md-nav__button md-logo" aria-label="galexrt/dellhw_exporter Documentation"> <img src=../images/favicon.png alt=logo> </a> galexrt/dellhw_exporter Documentation </label> <div class=md-nav__source> <a href=https://github.com/galexrt/dellhw_exporter/ title="Go to repository" class=md-source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> </div> <div class=md-source__repository> GitHub </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=.. title=Home class=md-nav__link> Home </a> </li> <li class=md-nav__item> <a href=../caching/ title=Caching class=md-nav__link> Caching </a> </li> <li class=md-nav__item> <a href=../collectors/ title=Collectors class=md-nav__link> Collectors </a> </li> <li class=md-nav__item> <a href=../configuration/ title=Configuration class=md-nav__link> Configuration </a> </li> <li class=md-nav__item> <a href=../development/ title=Development class=md-nav__link> Development </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" data-md-toggle=toc type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> Metrics <span class="md-nav__icon md-icon"></span> </label> <a href=./ title=Metrics class="md-nav__link md-nav__link--active"> Metrics </a> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=#what-do-the-metrics-mean class=md-nav__link> What do the metrics mean? </a> </li> <li class=md-nav__item> <a href=#example-metrics-output class=md-nav__link> Example Metrics Output </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=../troubleshooting/ title=Troubleshooting class=md-nav__link> Troubleshooting </a> </li> <li class=md-nav__item> <a href=../zprivacy-policy/ title="Privacy Policy" class=md-nav__link> Privacy Policy </a> </li> <li class=md-nav__item> <a href=../zsite-notice/ title=Impressum class=md-nav__link> Impressum </a> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=#what-do-the-metrics-mean class=md-nav__link> What do the metrics mean? </a> </li> <li class=md-nav__item> <a href=#example-metrics-output class=md-nav__link> Example Metrics Output </a> </li> </ul> </nav> </div> </div> </div> <div class=md-content> <article class="md-content__inner md-typeset"> <a href=https://github.com/galexrt/dellhw_exporter/edit/master/docs/metrics.md title="Edit this page" class="md-content__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg> </a> <h1>Metrics</h1> <h2 id=what-do-the-metrics-mean>What do the metrics mean?<a class=headerlink href=#what-do-the-metrics-mean title="Permanent link">&para;</a></h2> <p>Most metrics returned besides temperature, volts, fans RPM count and others, are state indicators which can have the following of the four states:</p> <ul> <li><code>0</code> - <code>OK</code>, the component should be fine.</li> <li><code>1</code> - <code>Critical</code>, the component is not okay / has potentially failed / <code>Unknown</code> status.</li> <li><code>2</code> - <code>Non-Critical</code>, the component is not okay, but not critical.</li> </ul> <h2 id=example-metrics-output>Example Metrics Output<a class=headerlink href=#example-metrics-output title="Permanent link">&para;</a></h2> <table class=highlighttable><tr><td class=linenos><div class=linenodiv><pre><span></span>1</pre></div></td><td class=code><div class=highlight><pre><span></span><code>
+<!doctype html><html lang=en class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="GitHub galexrt/dellhw_exporter project documentation"><meta name=author content="Alexander Trost"><link rel="shortcut icon" href=../images/favicon.png><meta name=generator content="mkdocs-1.1.2, mkdocs-material-6.0.1"><title>Metrics - galexrt/dellhw_exporter Documentation</title><link rel=stylesheet href=../assets/stylesheets/main.38780c08.min.css><link rel=stylesheet href=../assets/stylesheets/palette.3f72e892.min.css><meta name=theme-color content=#7e56c2></head> <body dir=ltr data-md-color-scheme=slate data-md-color-primary=deep-purple data-md-color-accent=lime> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#what-do-the-metrics-mean class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <header class=md-header data-md-component=header> <nav class="md-header-nav md-grid" aria-label=Header> <a href=.. title="galexrt/dellhw_exporter Documentation" class="md-header-nav__button md-logo" aria-label="galexrt/dellhw_exporter Documentation"> <img src=../images/favicon.png alt=logo> </a> <label class="md-header-nav__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg> </label> <div class=md-header-nav__title data-md-component=header-title> <div class=md-header-nav__ellipsis> <span class="md-header-nav__topic md-ellipsis"> galexrt/dellhw_exporter Documentation </span> <span class="md-header-nav__topic md-ellipsis"> Metrics </span> </div> </div> <label class="md-header-nav__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query data-md-state=active> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </label> <button type=reset class="md-search__icon md-icon" aria-label=Clear data-md-component=search-reset tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg> </button> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list></ol> </div> </div> </div> </div> </div> <div class=md-header-nav__source> <a href=https://github.com/galexrt/dellhw_exporter/ title="Go to repository" class=md-source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> </div> <div class=md-source__repository> GitHub </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=.. title="galexrt/dellhw_exporter Documentation" class="md-nav__button md-logo" aria-label="galexrt/dellhw_exporter Documentation"> <img src=../images/favicon.png alt=logo> </a> galexrt/dellhw_exporter Documentation </label> <div class=md-nav__source> <a href=https://github.com/galexrt/dellhw_exporter/ title="Go to repository" class=md-source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> </div> <div class=md-source__repository> GitHub </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=.. title=Home class=md-nav__link> Home </a> </li> <li class=md-nav__item> <a href=../caching/ title=Caching class=md-nav__link> Caching </a> </li> <li class=md-nav__item> <a href=../collectors/ title=Collectors class=md-nav__link> Collectors </a> </li> <li class=md-nav__item> <a href=../configuration/ title=Configuration class=md-nav__link> Configuration </a> </li> <li class=md-nav__item> <a href=../development/ title=Development class=md-nav__link> Development </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" data-md-toggle=toc type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> Metrics <span class="md-nav__icon md-icon"></span> </label> <a href=./ title=Metrics class="md-nav__link md-nav__link--active"> Metrics </a> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=#what-do-the-metrics-mean class=md-nav__link> What do the metrics mean? </a> </li> <li class=md-nav__item> <a href=#example-metrics-output class=md-nav__link> Example Metrics Output </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=../troubleshooting/ title=Troubleshooting class=md-nav__link> Troubleshooting </a> </li> <li class=md-nav__item> <a href=../zprivacy-policy/ title="Privacy Policy" class=md-nav__link> Privacy Policy </a> </li> <li class=md-nav__item> <a href=../zsite-notice/ title=Impressum class=md-nav__link> Impressum </a> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=#what-do-the-metrics-mean class=md-nav__link> What do the metrics mean? </a> </li> <li class=md-nav__item> <a href=#example-metrics-output class=md-nav__link> Example Metrics Output </a> </li> </ul> </nav> </div> </div> </div> <div class=md-content> <article class="md-content__inner md-typeset"> <a href=https://github.com/galexrt/dellhw_exporter/edit/master/docs/metrics.md title="Edit this page" class="md-content__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg> </a> <h1>Metrics</h1> <h2 id=what-do-the-metrics-mean>What do the metrics mean?<a class=headerlink href=#what-do-the-metrics-mean title="Permanent link">&para;</a></h2> <p>Most metrics returned besides temperature, volts, fans RPM count and others, are state indicators which can have the following of the four states:</p> <ul> <li><code>0</code> - <code>OK</code>, the component should be fine.</li> <li><code>1</code> - <code>Critical</code>, the component is not okay / has potentially failed / <code>Unknown</code> status.</li> <li><code>2</code> - <code>Non-Critical</code>, the component is not okay, but not critical.</li> </ul> <h2 id=example-metrics-output>Example Metrics Output<a class=headerlink href=#example-metrics-output title="Permanent link">&para;</a></h2> <table class=highlighttable><tr><td class=linenos><div class=linenodiv><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344</pre></div></td><td class=code><div class=highlight><pre><span></span><code># HELP dell_hw_bios Version info of firmwares/bios.
+# TYPE dell_hw_bios gauge
+dell_hw_bios{manufacturer=&quot;dell inc.&quot;,release_date=&quot;06/26/2020&quot;,version=&quot;2.8.1&quot;} 0
+# HELP dell_hw_chassis_current_reading System board power usage.
+# TYPE dell_hw_chassis_current_reading gauge
+dell_hw_chassis_current_reading{pwrsupply=&quot;PS1&quot;} 0.4
+dell_hw_chassis_current_reading{pwrsupply=&quot;PS2&quot;} 0.4
+# HELP dell_hw_chassis_fan_reading Overall status of system fans.
+# TYPE dell_hw_chassis_fan_reading gauge
+dell_hw_chassis_fan_reading{fan=&quot;System_Board_Fan1A&quot;} 6840
+dell_hw_chassis_fan_reading{fan=&quot;System_Board_Fan1B&quot;} 6480
+dell_hw_chassis_fan_reading{fan=&quot;System_Board_Fan2A&quot;} 6840
+dell_hw_chassis_fan_reading{fan=&quot;System_Board_Fan2B&quot;} 6480
+dell_hw_chassis_fan_reading{fan=&quot;System_Board_Fan3A&quot;} 6840
+dell_hw_chassis_fan_reading{fan=&quot;System_Board_Fan3B&quot;} 6360
+dell_hw_chassis_fan_reading{fan=&quot;System_Board_Fan4A&quot;} 7200
+dell_hw_chassis_fan_reading{fan=&quot;System_Board_Fan4B&quot;} 6960
+dell_hw_chassis_fan_reading{fan=&quot;System_Board_Fan5A&quot;} 7080
+dell_hw_chassis_fan_reading{fan=&quot;System_Board_Fan5B&quot;} 6720
+dell_hw_chassis_fan_reading{fan=&quot;System_Board_Fan6A&quot;} 6960
+dell_hw_chassis_fan_reading{fan=&quot;System_Board_Fan6B&quot;} 6480
+dell_hw_chassis_fan_reading{fan=&quot;System_Board_Fan7A&quot;} 6840
+dell_hw_chassis_fan_reading{fan=&quot;System_Board_Fan7B&quot;} 6480
+dell_hw_chassis_fan_reading{fan=&quot;System_Board_Fan8A&quot;} 6840
+dell_hw_chassis_fan_reading{fan=&quot;System_Board_Fan8B&quot;} 6600
+# HELP dell_hw_chassis_fan_status Overall status of system fans.
+# TYPE dell_hw_chassis_fan_status gauge
+dell_hw_chassis_fan_status{fan=&quot;System_Board_Fan1A&quot;} 0
+dell_hw_chassis_fan_status{fan=&quot;System_Board_Fan1B&quot;} 0
+dell_hw_chassis_fan_status{fan=&quot;System_Board_Fan2A&quot;} 0
+dell_hw_chassis_fan_status{fan=&quot;System_Board_Fan2B&quot;} 0
+dell_hw_chassis_fan_status{fan=&quot;System_Board_Fan3A&quot;} 0
+dell_hw_chassis_fan_status{fan=&quot;System_Board_Fan3B&quot;} 0
+dell_hw_chassis_fan_status{fan=&quot;System_Board_Fan4A&quot;} 0
+dell_hw_chassis_fan_status{fan=&quot;System_Board_Fan4B&quot;} 0
+dell_hw_chassis_fan_status{fan=&quot;System_Board_Fan5A&quot;} 0
+dell_hw_chassis_fan_status{fan=&quot;System_Board_Fan5B&quot;} 0
+dell_hw_chassis_fan_status{fan=&quot;System_Board_Fan6A&quot;} 0
+dell_hw_chassis_fan_status{fan=&quot;System_Board_Fan6B&quot;} 0
+dell_hw_chassis_fan_status{fan=&quot;System_Board_Fan7A&quot;} 0
+dell_hw_chassis_fan_status{fan=&quot;System_Board_Fan7B&quot;} 0
+dell_hw_chassis_fan_status{fan=&quot;System_Board_Fan8A&quot;} 0
+dell_hw_chassis_fan_status{fan=&quot;System_Board_Fan8B&quot;} 0
+# HELP dell_hw_chassis_memory_status System RAM DIMM status.
+# TYPE dell_hw_chassis_memory_status gauge
+dell_hw_chassis_memory_status{memory=&quot;A1&quot;} 0
+dell_hw_chassis_memory_status{memory=&quot;A2&quot;} 0
+dell_hw_chassis_memory_status{memory=&quot;A3&quot;} 0
+dell_hw_chassis_memory_status{memory=&quot;A4&quot;} 0
+dell_hw_chassis_memory_status{memory=&quot;A5&quot;} 0
+dell_hw_chassis_memory_status{memory=&quot;A6&quot;} 0
+dell_hw_chassis_memory_status{memory=&quot;B1&quot;} 0
+dell_hw_chassis_memory_status{memory=&quot;B2&quot;} 0
+dell_hw_chassis_memory_status{memory=&quot;B3&quot;} 0
+dell_hw_chassis_memory_status{memory=&quot;B4&quot;} 0
+dell_hw_chassis_memory_status{memory=&quot;B5&quot;} 0
+dell_hw_chassis_memory_status{memory=&quot;B6&quot;} 0
+# HELP dell_hw_chassis_power_fail_level System board power usage.
+# TYPE dell_hw_chassis_power_fail_level gauge
+dell_hw_chassis_power_fail_level 1300
+# HELP dell_hw_chassis_power_reading System board power usage.
+# TYPE dell_hw_chassis_power_reading gauge
+dell_hw_chassis_power_reading 156
+# HELP dell_hw_chassis_power_warn_level System board power usage.
+# TYPE dell_hw_chassis_power_warn_level gauge
+dell_hw_chassis_power_warn_level 1170
+# HELP dell_hw_chassis_processor_status Overall status of CPUs.
+# TYPE dell_hw_chassis_processor_status gauge
+dell_hw_chassis_processor_status{processor=&quot;CPU1&quot;} 0
+dell_hw_chassis_processor_status{processor=&quot;CPU2&quot;} 0
+# HELP dell_hw_chassis_status Overall status of chassis components.
+# TYPE dell_hw_chassis_status gauge
+dell_hw_chassis_status{component=&quot;Batteries&quot;} 0
+dell_hw_chassis_status{component=&quot;Fans&quot;} 0
+dell_hw_chassis_status{component=&quot;Hardware_Log&quot;} 0
+dell_hw_chassis_status{component=&quot;Intrusion&quot;} 0
+dell_hw_chassis_status{component=&quot;Memory&quot;} 0
+dell_hw_chassis_status{component=&quot;Power_Management&quot;} 0
+dell_hw_chassis_status{component=&quot;Power_Supplies&quot;} 0
+dell_hw_chassis_status{component=&quot;Processors&quot;} 0
+dell_hw_chassis_status{component=&quot;Temperatures&quot;} 0
+dell_hw_chassis_status{component=&quot;Voltages&quot;} 0
+# HELP dell_hw_chassis_temps Overall temperatures and status of system temperature readings.
+# TYPE dell_hw_chassis_temps gauge
+dell_hw_chassis_temps{component=&quot;CPU1_Temp&quot;} 0
+dell_hw_chassis_temps{component=&quot;CPU2_Temp&quot;} 0
+dell_hw_chassis_temps{component=&quot;System_Board_Exhaust_Temp&quot;} 0
+dell_hw_chassis_temps{component=&quot;System_Board_Inlet_Temp&quot;} 0
+# HELP dell_hw_chassis_temps_max_failure Overall temperatures and status of system temperature readings.
+# TYPE dell_hw_chassis_temps_max_failure gauge
+dell_hw_chassis_temps_max_failure{component=&quot;CPU1_Temp&quot;} 97
+dell_hw_chassis_temps_max_failure{component=&quot;CPU2_Temp&quot;} 97
+dell_hw_chassis_temps_max_failure{component=&quot;System_Board_Exhaust_Temp&quot;} 80
+dell_hw_chassis_temps_max_failure{component=&quot;System_Board_Inlet_Temp&quot;} 47
+# HELP dell_hw_chassis_temps_max_warning Overall temperatures and status of system temperature readings.
+# TYPE dell_hw_chassis_temps_max_warning gauge
+dell_hw_chassis_temps_max_warning{component=&quot;System_Board_Exhaust_Temp&quot;} 75
+dell_hw_chassis_temps_max_warning{component=&quot;System_Board_Inlet_Temp&quot;} 43
+# HELP dell_hw_chassis_temps_min_failure Overall temperatures and status of system temperature readings.
+# TYPE dell_hw_chassis_temps_min_failure gauge
+dell_hw_chassis_temps_min_failure{component=&quot;CPU1_Temp&quot;} 3
+dell_hw_chassis_temps_min_failure{component=&quot;CPU2_Temp&quot;} 3
+dell_hw_chassis_temps_min_failure{component=&quot;System_Board_Exhaust_Temp&quot;} 3
+dell_hw_chassis_temps_min_failure{component=&quot;System_Board_Inlet_Temp&quot;} -7
+# HELP dell_hw_chassis_temps_min_warning Overall temperatures and status of system temperature readings.
+# TYPE dell_hw_chassis_temps_min_warning gauge
+dell_hw_chassis_temps_min_warning{component=&quot;System_Board_Exhaust_Temp&quot;} 8
+dell_hw_chassis_temps_min_warning{component=&quot;System_Board_Inlet_Temp&quot;} 3
+# HELP dell_hw_chassis_temps_reading Overall temperatures and status of system temperature readings.
+# TYPE dell_hw_chassis_temps_reading gauge
+dell_hw_chassis_temps_reading{component=&quot;CPU1_Temp&quot;} 32
+dell_hw_chassis_temps_reading{component=&quot;CPU2_Temp&quot;} 34
+dell_hw_chassis_temps_reading{component=&quot;System_Board_Exhaust_Temp&quot;} 29
+dell_hw_chassis_temps_reading{component=&quot;System_Board_Inlet_Temp&quot;} 19
+# HELP dell_hw_chassis_volts_reading Overall volts and status of power supply volt readings.
+# TYPE dell_hw_chassis_volts_reading gauge
+dell_hw_chassis_volts_reading{component=&quot;PS1_Voltage_1&quot;} 228
+dell_hw_chassis_volts_reading{component=&quot;PS2_Voltage_2&quot;} 228
+# HELP dell_hw_chassis_volts_status Overall volts and status of power supply volt readings.
+# TYPE dell_hw_chassis_volts_status gauge
+dell_hw_chassis_volts_status{component=&quot;CPU1_FIVR_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;CPU1_MEM012_VDDQ_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;CPU1_MEM012_VPP_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;CPU1_MEM012_VTT_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;CPU1_MEM345_VDDQ_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;CPU1_MEM345_VPP_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;CPU1_MEM345_VTT_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;CPU1_VCCIO_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;CPU1_VCORE_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;CPU1_VSA_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;CPU2_FIVR_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;CPU2_MEM012_VDDQ_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;CPU2_MEM012_VPP_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;CPU2_MEM012_VTT_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;CPU2_MEM345_VDDQ_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;CPU2_MEM345_VPP_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;CPU2_MEM345_VTT_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;CPU2_VCCIO_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;CPU2_VCORE_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;CPU2_VSA_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;PS1_Voltage_1&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;PS2_Voltage_2&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;System_Board_1.8V_SW_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;System_Board_2.5V_SW_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;System_Board_3.3V_A_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;System_Board_3.3V_B_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;System_Board_5V_SW_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;System_Board_BP0_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;System_Board_BP1_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;System_Board_BP2_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;System_Board_DIMM_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;System_Board_NDC_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;System_Board_PS1_PG_FAIL&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;System_Board_PS2_PG_FAIL&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;System_Board_PVNN_SW_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;System_Board_VSB11_SW_PG&quot;} 0
+dell_hw_chassis_volts_status{component=&quot;System_Board_VSBM_SW_PG&quot;} 0
+# HELP dell_hw_cmos_batteries_status Overall status of chassis batteries
+# TYPE dell_hw_cmos_batteries_status gauge
+dell_hw_cmos_batteries_status{id=&quot;0&quot;} 0
+# HELP dell_hw_firmware Version info of firmwares/bios.
+# TYPE dell_hw_firmware gauge
+dell_hw_firmware{idrac9=&quot;4.22.00.00 (build 20)&quot;} 0
+# HELP dell_hw_nic_status Connection status of network cards.
+# TYPE dell_hw_nic_status gauge
+dell_hw_nic_status{device=&quot;docker0&quot;,id=&quot;0&quot;} 1
+dell_hw_nic_status{device=&quot;eno1&quot;,id=&quot;2&quot;} 0
+dell_hw_nic_status{device=&quot;eno2&quot;,id=&quot;3&quot;} 1
+dell_hw_nic_status{device=&quot;eno3&quot;,id=&quot;0&quot;} 1
+dell_hw_nic_status{device=&quot;eno4&quot;,id=&quot;1&quot;} 1
+# HELP dell_hw_ps_rated_input_wattage Overall status of power supplies.
+# TYPE dell_hw_ps_rated_input_wattage gauge
+dell_hw_ps_rated_input_wattage{id=&quot;0&quot;} 1260
+dell_hw_ps_rated_input_wattage{id=&quot;1&quot;} 1260
+# HELP dell_hw_ps_rated_output_wattage Overall status of power supplies.
+# TYPE dell_hw_ps_rated_output_wattage gauge
+dell_hw_ps_rated_output_wattage{id=&quot;0&quot;} 1100
+dell_hw_ps_rated_output_wattage{id=&quot;1&quot;} 1100
+# HELP dell_hw_ps_status Overall status of power supplies.
+# TYPE dell_hw_ps_status gauge
+dell_hw_ps_status{id=&quot;0&quot;} 0
+dell_hw_ps_status{id=&quot;1&quot;} 0
+# HELP dell_hw_scrape_collector_duration_seconds dellhw_exporter: Duration of a collector scrape.
+# TYPE dell_hw_scrape_collector_duration_seconds gauge
+dell_hw_scrape_collector_duration_seconds{collector=&quot;chassis&quot;} 2.516581654
+dell_hw_scrape_collector_duration_seconds{collector=&quot;chassis_batteries&quot;} 2.408411858
+dell_hw_scrape_collector_duration_seconds{collector=&quot;fans&quot;} 0.391451297
+dell_hw_scrape_collector_duration_seconds{collector=&quot;firmwares&quot;} 0.690688131
+dell_hw_scrape_collector_duration_seconds{collector=&quot;memory&quot;} 2.392257815
+dell_hw_scrape_collector_duration_seconds{collector=&quot;nics&quot;} 2.501337814
+dell_hw_scrape_collector_duration_seconds{collector=&quot;processors&quot;} 0.490092584
+dell_hw_scrape_collector_duration_seconds{collector=&quot;ps&quot;} 0.488725968
+dell_hw_scrape_collector_duration_seconds{collector=&quot;ps_amps_sysboard_pwr&quot;} 2.410220934
+dell_hw_scrape_collector_duration_seconds{collector=&quot;storage_battery&quot;} 0.596624274
+dell_hw_scrape_collector_duration_seconds{collector=&quot;storage_controller&quot;} 1.887127915
+dell_hw_scrape_collector_duration_seconds{collector=&quot;storage_enclosure&quot;} 0.590577123
+dell_hw_scrape_collector_duration_seconds{collector=&quot;storage_pdisk&quot;} 2.294178837
+dell_hw_scrape_collector_duration_seconds{collector=&quot;storage_vdisk&quot;} 0.69400828
+dell_hw_scrape_collector_duration_seconds{collector=&quot;system&quot;} 0.587728339
+dell_hw_scrape_collector_duration_seconds{collector=&quot;temps&quot;} 0.488827354
+dell_hw_scrape_collector_duration_seconds{collector=&quot;volts&quot;} 0.491565389
+# HELP dell_hw_scrape_collector_success dellhw_exporter: Whether a collector succeeded.
+# TYPE dell_hw_scrape_collector_success gauge
+dell_hw_scrape_collector_success{collector=&quot;chassis&quot;} 1
+dell_hw_scrape_collector_success{collector=&quot;chassis_batteries&quot;} 1
+dell_hw_scrape_collector_success{collector=&quot;fans&quot;} 1
+dell_hw_scrape_collector_success{collector=&quot;firmwares&quot;} 1
+dell_hw_scrape_collector_success{collector=&quot;memory&quot;} 1
+dell_hw_scrape_collector_success{collector=&quot;nics&quot;} 1
+dell_hw_scrape_collector_success{collector=&quot;processors&quot;} 1
+dell_hw_scrape_collector_success{collector=&quot;ps&quot;} 1
+dell_hw_scrape_collector_success{collector=&quot;ps_amps_sysboard_pwr&quot;} 1
+dell_hw_scrape_collector_success{collector=&quot;storage_battery&quot;} 1
+dell_hw_scrape_collector_success{collector=&quot;storage_controller&quot;} 1
+dell_hw_scrape_collector_success{collector=&quot;storage_enclosure&quot;} 1
+dell_hw_scrape_collector_success{collector=&quot;storage_pdisk&quot;} 1
+dell_hw_scrape_collector_success{collector=&quot;storage_vdisk&quot;} 1
+dell_hw_scrape_collector_success{collector=&quot;system&quot;} 1
+dell_hw_scrape_collector_success{collector=&quot;temps&quot;} 1
+dell_hw_scrape_collector_success{collector=&quot;volts&quot;} 1
+# HELP dell_hw_storage_controller_status Overall status of storage controllers.
+# TYPE dell_hw_storage_controller_status gauge
+dell_hw_storage_controller_status{controller_name=&quot;Dell HBA330 Mini (Slot Embedded)&quot;,id=&quot;0&quot;} 0
+# HELP dell_hw_storage_enclosure_status Overall status of storage enclosures.
+# TYPE dell_hw_storage_enclosure_status gauge
+dell_hw_storage_enclosure_status{controller_name=&quot;Dell HBA330 Mini (Embedded)&quot;,enclosure=&quot;0_1&quot;} 0
+# HELP dell_hw_storage_pdisk_status Overall status of physical disks.
+# TYPE dell_hw_storage_pdisk_status gauge
+dell_hw_storage_pdisk_status{controller=&quot;0&quot;,controller_name=&quot;Dell HBA330 Mini (Embedded)&quot;,disk=&quot;0_1_10&quot;} 0
+dell_hw_storage_pdisk_status{controller=&quot;0&quot;,controller_name=&quot;Dell HBA330 Mini (Embedded)&quot;,disk=&quot;0_1_11&quot;} 0
+# HELP dell_hw_system_status Overall status of system components.
+# TYPE dell_hw_system_status gauge
+dell_hw_system_status{component=&quot;Main_System_Chassis&quot;} 0
+# HELP go_gc_duration_seconds A summary of the pause duration of garbage collection cycles.
+# TYPE go_gc_duration_seconds summary
+go_gc_duration_seconds{quantile=&quot;0&quot;} 4.4303e-05
+go_gc_duration_seconds{quantile=&quot;0.25&quot;} 8.1471e-05
+go_gc_duration_seconds{quantile=&quot;0.5&quot;} 0.000220224
+go_gc_duration_seconds{quantile=&quot;0.75&quot;} 0.000391777
+go_gc_duration_seconds{quantile=&quot;1&quot;} 0.00080469
+go_gc_duration_seconds_sum 0.692176499
+go_gc_duration_seconds_count 1641
+# HELP go_goroutines Number of goroutines that currently exist.
+# TYPE go_goroutines gauge
+go_goroutines 9
+# HELP go_info Information about the Go environment.
+# TYPE go_info gauge
+go_info{version=&quot;go1.13.11&quot;} 1
+# HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.
+# TYPE go_memstats_alloc_bytes gauge
+go_memstats_alloc_bytes 2.77076e+06
+# HELP go_memstats_alloc_bytes_total Total number of bytes allocated, even if freed.
+# TYPE go_memstats_alloc_bytes_total counter
+go_memstats_alloc_bytes_total 2.049096176e+09
+# HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table.
+# TYPE go_memstats_buck_hash_sys_bytes gauge
+go_memstats_buck_hash_sys_bytes 1.607338e+06
+# HELP go_memstats_frees_total Total number of frees.
+# TYPE go_memstats_frees_total counter
+go_memstats_frees_total 9.131498e+06
+# HELP go_memstats_gc_cpu_fraction The fraction of this program&#39;s available CPU time used by the GC since the program started.
+# TYPE go_memstats_gc_cpu_fraction gauge
+go_memstats_gc_cpu_fraction 1.1641209236887955e-05
+# HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata.
+# TYPE go_memstats_gc_sys_bytes gauge
+go_memstats_gc_sys_bytes 2.394112e+06
+# HELP go_memstats_heap_alloc_bytes Number of heap bytes allocated and still in use.
+# TYPE go_memstats_heap_alloc_bytes gauge
+go_memstats_heap_alloc_bytes 2.77076e+06
+# HELP go_memstats_heap_idle_bytes Number of heap bytes waiting to be used.
+# TYPE go_memstats_heap_idle_bytes gauge
+go_memstats_heap_idle_bytes 5.9318272e+07
+# HELP go_memstats_heap_inuse_bytes Number of heap bytes that are in use.
+# TYPE go_memstats_heap_inuse_bytes gauge
+go_memstats_heap_inuse_bytes 4.612096e+06
+# HELP go_memstats_heap_objects Number of allocated objects.
+# TYPE go_memstats_heap_objects gauge
+go_memstats_heap_objects 5914
+# HELP go_memstats_heap_released_bytes Number of heap bytes released to OS.
+# TYPE go_memstats_heap_released_bytes gauge
+go_memstats_heap_released_bytes 5.7663488e+07
+# HELP go_memstats_heap_sys_bytes Number of heap bytes obtained from system.
+# TYPE go_memstats_heap_sys_bytes gauge
+go_memstats_heap_sys_bytes 6.3930368e+07
+# HELP go_memstats_last_gc_time_seconds Number of seconds since 1970 of last garbage collection.
+# TYPE go_memstats_last_gc_time_seconds gauge
+go_memstats_last_gc_time_seconds 1.60153799910655e+09
+# HELP go_memstats_lookups_total Total number of pointer lookups.
+# TYPE go_memstats_lookups_total counter
+go_memstats_lookups_total 0
+# HELP go_memstats_mallocs_total Total number of mallocs.
+# TYPE go_memstats_mallocs_total counter
+go_memstats_mallocs_total 9.137412e+06
+# HELP go_memstats_mcache_inuse_bytes Number of bytes in use by mcache structures.
+# TYPE go_memstats_mcache_inuse_bytes gauge
+go_memstats_mcache_inuse_bytes 138880
+# HELP go_memstats_mcache_sys_bytes Number of bytes used for mcache structures obtained from system.
+# TYPE go_memstats_mcache_sys_bytes gauge
+go_memstats_mcache_sys_bytes 147456
+# HELP go_memstats_mspan_inuse_bytes Number of bytes in use by mspan structures.
+# TYPE go_memstats_mspan_inuse_bytes gauge
+go_memstats_mspan_inuse_bytes 71944
+# HELP go_memstats_mspan_sys_bytes Number of bytes used for mspan structures obtained from system.
+# TYPE go_memstats_mspan_sys_bytes gauge
+go_memstats_mspan_sys_bytes 98304
+# HELP go_memstats_next_gc_bytes Number of heap bytes when next garbage collection will take place.
+# TYPE go_memstats_next_gc_bytes gauge
+go_memstats_next_gc_bytes 5.202448e+06
+# HELP go_memstats_other_sys_bytes Number of bytes used for other system allocations.
+# TYPE go_memstats_other_sys_bytes gauge
+go_memstats_other_sys_bytes 5.38683e+06
+# HELP go_memstats_stack_inuse_bytes Number of bytes in use by the stack allocator.
+# TYPE go_memstats_stack_inuse_bytes gauge
+go_memstats_stack_inuse_bytes 3.178496e+06
+# HELP go_memstats_stack_sys_bytes Number of bytes obtained from system for stack allocator.
+# TYPE go_memstats_stack_sys_bytes gauge
+go_memstats_stack_sys_bytes 3.178496e+06
+# HELP go_memstats_sys_bytes Number of bytes obtained from system.
+# TYPE go_memstats_sys_bytes gauge
+go_memstats_sys_bytes 7.6742904e+07
+# HELP go_threads Number of OS threads created.
+# TYPE go_threads gauge
+go_threads 55
+# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
+# TYPE process_cpu_seconds_total counter
+process_cpu_seconds_total 50.7
+# HELP process_max_fds Maximum number of open file descriptors.
+# TYPE process_max_fds gauge
+process_max_fds 1.048576e+06
+# HELP process_open_fds Number of open file descriptors.
+# TYPE process_open_fds gauge
+process_open_fds 64
+# HELP process_resident_memory_bytes Resident memory size in bytes.
+# TYPE process_resident_memory_bytes gauge
+process_resident_memory_bytes 2.9724672e+07
+# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds 1.6014587121e+09
+# HELP process_virtual_memory_bytes Virtual memory size in bytes.
+# TYPE process_virtual_memory_bytes gauge
+process_virtual_memory_bytes 1.22191872e+08
+# HELP process_virtual_memory_max_bytes Maximum amount of virtual memory available in bytes.
+# TYPE process_virtual_memory_max_bytes gauge
+process_virtual_memory_max_bytes -1
 </code></pre></div> </td></tr></table> </article> </div> </div> </main> <footer class=md-footer> <div class=md-footer-nav> <nav class="md-footer-nav__inner md-grid" aria-label=Footer> <a href=../development/ title=Development class="md-footer-nav__link md-footer-nav__link--prev" rel=prev> <div class="md-footer-nav__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg> </div> <div class=md-footer-nav__title> <div class=md-ellipsis> <span class=md-footer-nav__direction> Previous </span> Development </div> </div> </a> <a href=../troubleshooting/ title=Troubleshooting class="md-footer-nav__link md-footer-nav__link--next" rel=next> <div class=md-footer-nav__title> <div class=md-ellipsis> <span class=md-footer-nav__direction> Next </span> Troubleshooting </div> </div> <div class="md-footer-nav__button md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg> </div> </a> </nav> </div> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-footer-copyright> <div class=md-footer-copyright__highlight> <a href=/site-notice/ >Impressum</a> | <a href=/privacy-policy/ >Privacy Policy</a> | Copyright (c) Alexander Trost 2020 </div> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> </div> </div> </footer> </div> <script src=../assets/javascripts/vendor.77e55a48.min.js></script> <script src=../assets/javascripts/bundle.aa3f9871.min.js></script><script id=__lang type=application/json>{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script> <script>
         app = initialize({
           base: "..",
